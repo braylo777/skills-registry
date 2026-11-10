@@ -1,0 +1,61 @@
+{
+  "_note": "Gold outputs are hand-computed from each SKILL.md procedure. 'family' says which procedure the task needs; the agent never sees it. family=null are distractor tasks no skill covers.",
+  "tasks": [
+    {"id": "inv1", "family": "invoice-total", "query": "How much does the client owe? Two widgets and an hour of setup labour, net-30 terms.", "input": {"lines": [{"kind": "goods", "qty": 2, "unit": 10.0}, {"kind": "service", "qty": 1, "unit": 50.0}], "days_to_pay": 30}, "expected": {"total": "71.65"}},
+    {"id": "inv2", "family": "invoice-total", "query": "Bill the customer for three consulting sessions, payment due in a month.", "input": {"lines": [{"kind": "service", "qty": 3, "unit": 40.0}], "days_to_pay": 30}, "expected": {"total": "120.00"}},
+    {"id": "inv3", "family": "invoice-total", "query": "Final amount due on this invoice if they pay within five days?", "input": {"lines": [{"kind": "goods", "qty": 1, "unit": 99.99}], "days_to_pay": 5}, "expected": {"total": "106.07"}},
+    {"id": "inv4", "family": "invoice-total", "query": "Work out the invoice total for some screws plus a repair service, paid in 10 days.", "input": {"lines": [{"kind": "goods", "qty": 3, "unit": 0.35}, {"kind": "service", "qty": 1, "unit": 15.0}], "days_to_pay": 10}, "expected": {"total": "15.81"}},
+    {"id": "inv5", "family": "invoice-total", "query": "What should the bill say for two hours of design work paid immediately?", "input": {"lines": [{"kind": "service", "qty": 2, "unit": 12.5}], "days_to_pay": 2}, "expected": {"total": "24.50"}},
+
+    {"id": "sv1", "family": "semver-bump", "query": "We merged these commits; what version do we ship next?", "input": {"current": "1.4.2", "commits": ["fix: null check in parser", "docs: readme"]}, "expected": {"next": "1.4.3"}},
+    {"id": "sv2", "family": "semver-bump", "query": "Pick the release number after these changes land.", "input": {"current": "1.4.2", "commits": ["feat(api): add search", "fix: typo"]}, "expected": {"next": "1.5.0"}},
+    {"id": "sv3", "family": "semver-bump", "query": "Our library is still 0.x. Given this commit log, tag the next release.", "input": {"current": "0.9.1", "commits": ["feat!: drop v1 endpoints"]}, "expected": {"next": "0.10.0"}},
+    {"id": "sv4", "family": "semver-bump", "query": "Which version comes after 2.0.0 for this changelog?", "input": {"current": "2.0.0", "commits": ["refactor: tidy", "fix: rename config\n\nBREAKING CHANGE: config key renamed"]}, "expected": {"next": "3.0.0"}},
+    {"id": "sv5", "family": "semver-bump", "query": "Do these commits need a new release, and if so which version?", "input": {"current": "1.2.3", "commits": ["perf: faster parse", "chore: bump deps"]}, "expected": {"next": "1.2.4"}},
+
+    {"id": "dt1", "family": "date-normalize", "query": "Clean up these timestamps into plain calendar dates.", "input": {"dates": ["2026-11-03T14:22:00Z", "11/03/2026"]}, "expected": {"dates": ["2026-11-03", "2026-11-03"]}},
+    {"id": "dt2", "family": "date-normalize", "query": "Convert this spreadsheet column of dates to one consistent format.", "input": {"dates": ["3 Nov 2026", "12/25/99"]}, "expected": {"dates": ["2026-11-03", "1999-12-25"]}},
+    {"id": "dt3", "family": "date-normalize", "query": "Standardize the date in this form field.", "input": {"dates": ["01/02/03"]}, "expected": {"dates": ["2003-01-02"]}},
+    {"id": "dt4", "family": "date-normalize", "query": "Rewrite these historical dates in our canonical format.", "input": {"dates": ["7/4/76", "15 Aug 1947"]}, "expected": {"dates": ["1976-07-04", "1947-08-15"]}},
+    {"id": "dt5", "family": "date-normalize", "query": "Make these leap-day entries uniform.", "input": {"dates": ["2024-02-29", "02/29/2024"]}, "expected": {"dates": ["2024-02-29", "2024-02-29"]}},
+
+    {"id": "br1", "family": "branch-name", "query": "What should I call the git branch for ticket PAY-142?", "input": {"type": "feat", "ticket": "PAY-142", "summary": "Add retry to payment webhook"}, "expected": {"branch": "feat/PAY-142-add-retry-payment-webhook"}},
+    {"id": "br2", "family": "branch-name", "query": "Name a branch for bug OPS-7.", "input": {"type": "fix", "ticket": "OPS-7", "summary": "Crash on empty cart"}, "expected": {"branch": "fix/OPS-7-crash-on-empty-cart"}},
+    {"id": "br3", "family": "branch-name", "query": "Create the branch name for this docs ticket.", "input": {"type": "docs", "ticket": "DOC-88", "summary": "Explain the café menu export"}, "expected": {"branch": "docs/DOC-88-explain-cafe-menu-export"}},
+    {"id": "br4", "family": "branch-name", "query": "I need a branch for infra ticket INF-3, following team conventions.", "input": {"type": "chore", "ticket": "INF-3", "summary": "Upgrade postgres driver and connection pooling library everywhere"}, "expected": {"branch": "chore/INF-3-upgrade-postgres-driver"}},
+    {"id": "br5", "family": "branch-name", "query": "Branch name please for UX-5.", "input": {"type": "feat", "ticket": "UX-5", "summary": "Dark mode toggle"}, "expected": {"branch": "feat/UX-5-dark-mode-toggle"}},
+
+    {"id": "dd1", "family": "customer-dedupe", "query": "Remove duplicate people from this contact export.", "input": {"rows": [{"id": 1, "email": "Ann@Example.com", "updated_at": "2026-01-01"}, {"id": 2, "email": "ann@example.com", "updated_at": "2026-03-01"}, {"id": 3, "email": "bob@example.com", "updated_at": "2026-02-01"}]}, "expected": {"ids": [2, 3]}},
+    {"id": "dd2", "family": "customer-dedupe", "query": "These CRM records might be the same person; merge them.", "input": {"rows": [{"id": 1, "email": "j.doe+news@gmail.com", "updated_at": "2026-05-01"}, {"id": 2, "email": "jdoe@gmail.com", "updated_at": "2026-04-01"}, {"id": 3, "email": "jdoe@googlemail.com", "updated_at": "2026-06-01"}]}, "expected": {"ids": [3]}},
+    {"id": "dd3", "family": "customer-dedupe", "query": "Collapse repeated customers in this list.", "input": {"rows": [{"id": 1, "email": "a.b@corp.io", "updated_at": "2026-01-01"}, {"id": 2, "email": "ab@corp.io", "updated_at": "2026-02-01"}]}, "expected": {"ids": [1, 2]}},
+    {"id": "dd4", "family": "customer-dedupe", "query": "Find and drop duplicate customer accounts before the email campaign.", "input": {"rows": [{"id": 5, "email": "x+1@gmail.com", "updated_at": "2026-01-05"}, {"id": 6, "email": "X@Gmail.com", "updated_at": "2026-01-04"}, {"id": 7, "email": "x+1@corp.io", "updated_at": "2026-01-01"}, {"id": 8, "email": "x@corp.io", "updated_at": "2026-01-02"}]}, "expected": {"ids": [5, 7, 8]}},
+    {"id": "dd5", "family": "customer-dedupe", "query": "Same customer twice? Keep the freshest record.", "input": {"rows": [{"id": 1, "email": "m@a.com", "updated_at": "2026-02-02"}, {"id": 2, "email": "M@A.COM", "updated_at": "2026-02-01"}]}, "expected": {"ids": [1]}},
+
+    {"id": "sev1", "family": "incident-severity", "query": "How urgent is this alert? Errors are spiking.", "input": {"error_rate": 0.07}, "expected": {"priority": "P1"}},
+    {"id": "sev2", "family": "incident-severity", "query": "Triage this page from the billing team.", "input": {"error_rate": 0.0, "text": "Possible data loss in billing export"}, "expected": {"priority": "P1"}},
+    {"id": "sev3", "family": "incident-severity", "query": "What priority should on-call give this latency alert?", "input": {"error_rate": 0.002, "p95_ms": 2500}, "expected": {"priority": "P2"}},
+    {"id": "sev4", "family": "incident-severity", "query": "Rate the severity of this outage report.", "input": {"error_rate": 0.02}, "expected": {"priority": "P2"}},
+    {"id": "sev5", "family": "incident-severity", "query": "A whole region is down for customers. Classify the incident.", "input": {"error_rate": 0.0, "customer_facing": true, "region_down": true}, "expected": {"priority": "P1"}},
+
+    {"id": "sh1", "family": "shipping-weight", "query": "What weight will the courier charge for this box?", "input": {"dims_in": [10, 10, 10], "actual_lb": 3}, "expected": {"billable_lb": 8}},
+    {"id": "sh2", "family": "shipping-weight", "query": "Chargeable pounds for a small heavy package?", "input": {"dims_in": [6, 6, 6], "actual_lb": 9.2}, "expected": {"billable_lb": 10}},
+    {"id": "sh3", "family": "shipping-weight", "query": "Quote the billed weight for this 12-inch cube parcel.", "input": {"dims_in": [12, 12, 12], "actual_lb": 5}, "expected": {"billable_lb": 13}},
+    {"id": "sh4", "family": "shipping-weight", "query": "How many pounds do we pay postage on for this little box?", "input": {"dims_in": [4, 4, 4], "actual_lb": 4.0}, "expected": {"billable_lb": 4}},
+    {"id": "sh5", "family": "shipping-weight", "query": "Carrier billing weight for a flat 20x10x5 carton?", "input": {"dims_in": [20, 10, 5], "actual_lb": 6}, "expected": {"billable_lb": 8}},
+
+    {"id": "ph1", "family": "phone-e164", "query": "Store this phone number in international format.", "input": {"numbers": ["(312) 555-0142"]}, "expected": {"numbers": ["+13125550142"]}},
+    {"id": "ph2", "family": "phone-e164", "query": "Normalize these contact numbers for the SMS gateway.", "input": {"numbers": ["1-800-555-0199", "+44 20 7946 0958"]}, "expected": {"numbers": ["+18005550199", "+442079460958"]}},
+    {"id": "ph3", "family": "phone-e164", "query": "Fix the format of this German telephone number.", "input": {"numbers": ["0049 30 1234567"]}, "expected": {"numbers": ["+49301234567"]}},
+    {"id": "ph4", "family": "phone-e164", "query": "Clean this phone field from the signup form.", "input": {"numbers": ["555-0142"]}, "expected": {"numbers": [null]}},
+    {"id": "ph5", "family": "phone-e164", "query": "Convert both numbers to the dialable standard.", "input": {"numbers": ["+1 (646) 555 0100", "646.555.0100"]}, "expected": {"numbers": ["+16465550100", "+16465550100"]}},
+
+    {"id": "x1", "family": null, "query": "Write a haiku about autumn leaves."},
+    {"id": "x2", "family": null, "query": "Translate 'good morning' into Spanish."},
+    {"id": "x3", "family": null, "query": "What is 17 times 23?"},
+    {"id": "x4", "family": null, "query": "Summarize this paragraph about whale migration."},
+    {"id": "x5", "family": null, "query": "Compute the area of a circle with radius 3."},
+    {"id": "x6", "family": null, "query": "Rename the git tag v1.0 to v1.0.0."},
+    {"id": "x7", "family": null, "query": "Explain what a database index is."},
+    {"id": "x8", "family": null, "query": "Draft a polite email declining a meeting."}
+  ]
+}

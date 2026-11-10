@@ -1,0 +1,1707 @@
+{
+  "generated": "2026-11-10T14:54:22",
+  "python": "3.12.4",
+  "note": "No LLM. Deterministic router/executor; regex token counts; generic baselines by construction.",
+  "n_skills": 8,
+  "index_tokens": 200,
+  "all_skill_md_tokens": 1517,
+  "threshold": 0.15,
+  "conditions": {
+    "no_skills": {
+      "success_rate": 0.475,
+      "successes": 19,
+      "n_tasks": 40,
+      "mean_prompt_tokens": 73.6,
+      "mean_prompt_tokens_scored": 79.6,
+      "correct_skill_selected": 0,
+      "wrong_skill_selected": 0,
+      "no_skill_selected": 40,
+      "distractor_false_loads": 0,
+      "n_distractors": 8,
+      "by_family": {
+        "branch-name": [
+          2,
+          5
+        ],
+        "customer-dedupe": [
+          3,
+          5
+        ],
+        "date-normalize": [
+          3,
+          5
+        ],
+        "incident-severity": [
+          2,
+          5
+        ],
+        "invoice-total": [
+          1,
+          5
+        ],
+        "phone-e164": [
+          3,
+          5
+        ],
+        "semver-bump": [
+          3,
+          5
+        ],
+        "shipping-weight": [
+          2,
+          5
+        ]
+      }
+    },
+    "all_in_context": {
+      "success_rate": 1.0,
+      "successes": 40,
+      "n_tasks": 40,
+      "mean_prompt_tokens": 1590.6,
+      "mean_prompt_tokens_scored": 1596.6,
+      "correct_skill_selected": 40,
+      "wrong_skill_selected": 0,
+      "no_skill_selected": 0,
+      "distractor_false_loads": 0,
+      "n_distractors": 8,
+      "by_family": {
+        "branch-name": [
+          5,
+          5
+        ],
+        "customer-dedupe": [
+          5,
+          5
+        ],
+        "date-normalize": [
+          5,
+          5
+        ],
+        "incident-severity": [
+          5,
+          5
+        ],
+        "invoice-total": [
+          5,
+          5
+        ],
+        "phone-e164": [
+          5,
+          5
+        ],
+        "semver-bump": [
+          5,
+          5
+        ],
+        "shipping-weight": [
+          5,
+          5
+        ]
+      }
+    },
+    "registry": {
+      "success_rate": 0.825,
+      "successes": 33,
+      "n_tasks": 40,
+      "mean_prompt_tokens": 420.8,
+      "mean_prompt_tokens_scored": 441.4,
+      "correct_skill_selected": 29,
+      "wrong_skill_selected": 5,
+      "no_skill_selected": 6,
+      "distractor_false_loads": 3,
+      "n_distractors": 8,
+      "by_family": {
+        "branch-name": [
+          5,
+          5
+        ],
+        "customer-dedupe": [
+          4,
+          5
+        ],
+        "date-normalize": [
+          5,
+          5
+        ],
+        "incident-severity": [
+          3,
+          5
+        ],
+        "invoice-total": [
+          2,
+          5
+        ],
+        "phone-e164": [
+          4,
+          5
+        ],
+        "semver-bump": [
+          5,
+          5
+        ],
+        "shipping-weight": [
+          5,
+          5
+        ]
+      }
+    }
+  },
+  "records": {
+    "no_skills": [
+      {
+        "id": "inv1",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 115,
+        "output": {
+          "total": "70.00"
+        },
+        "success": false
+      },
+      {
+        "id": "inv2",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 84,
+        "output": {
+          "total": "120.00"
+        },
+        "success": true
+      },
+      {
+        "id": "inv3",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 83,
+        "output": {
+          "total": "99.99"
+        },
+        "success": false
+      },
+      {
+        "id": "inv4",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 112,
+        "output": {
+          "total": "16.05"
+        },
+        "success": false
+      },
+      {
+        "id": "inv5",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 84,
+        "output": {
+          "total": "25.00"
+        },
+        "success": false
+      },
+      {
+        "id": "sv1",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 79,
+        "output": {
+          "next": "1.4.3"
+        },
+        "success": true
+      },
+      {
+        "id": "sv2",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 77,
+        "output": {
+          "next": "1.5.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv3",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 79,
+        "output": {
+          "next": "1.0.0"
+        },
+        "success": false
+      },
+      {
+        "id": "sv4",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 87,
+        "output": {
+          "next": "3.0.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv5",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 80,
+        "output": {
+          "next": null
+        },
+        "success": false
+      },
+      {
+        "id": "dt1",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 69,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "2026-11-03"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt2",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 65,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "2099-12-25"
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "dt3",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 56,
+        "output": {
+          "dates": [
+            "2003-01-02"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt4",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 63,
+        "output": {
+          "dates": [
+            "2076-07-04",
+            "1947-08-15"
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "dt5",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 64,
+        "output": {
+          "dates": [
+            "2024-02-29",
+            "2024-02-29"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "br1",
+        "family": "branch-name",
+        "selected": null,
+        "prompt_tokens": 77,
+        "output": {
+          "branch": "feat/PAY-142-add-retry-to-payment-webhook"
+        },
+        "success": false
+      },
+      {
+        "id": "br2",
+        "family": "branch-name",
+        "selected": null,
+        "prompt_tokens": 72,
+        "output": {
+          "branch": "fix/OPS-7-crash-on-empty-cart"
+        },
+        "success": true
+      },
+      {
+        "id": "br3",
+        "family": "branch-name",
+        "selected": null,
+        "prompt_tokens": 75,
+        "output": {
+          "branch": "docs/DOC-88-explain-the-caf-menu-export"
+        },
+        "success": false
+      },
+      {
+        "id": "br4",
+        "family": "branch-name",
+        "selected": null,
+        "prompt_tokens": 82,
+        "output": {
+          "branch": "chore/INF-3-upgrade-postgres-driver-and-connection-pooling-library-everywhere"
+        },
+        "success": false
+      },
+      {
+        "id": "br5",
+        "family": "branch-name",
+        "selected": null,
+        "prompt_tokens": 70,
+        "output": {
+          "branch": "feat/UX-5-dark-mode-toggle"
+        },
+        "success": true
+      },
+      {
+        "id": "dd1",
+        "family": "customer-dedupe",
+        "selected": null,
+        "prompt_tokens": 144,
+        "output": {
+          "ids": [
+            2,
+            3
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd2",
+        "family": "customer-dedupe",
+        "selected": null,
+        "prompt_tokens": 152,
+        "output": {
+          "ids": [
+            1,
+            2,
+            3
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "dd3",
+        "family": "customer-dedupe",
+        "selected": null,
+        "prompt_tokens": 113,
+        "output": {
+          "ids": [
+            1,
+            2
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd4",
+        "family": "customer-dedupe",
+        "selected": null,
+        "prompt_tokens": 183,
+        "output": {
+          "ids": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "dd5",
+        "family": "customer-dedupe",
+        "selected": null,
+        "prompt_tokens": 113,
+        "output": {
+          "ids": [
+            1
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "sev1",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 52,
+        "output": {
+          "priority": "P1"
+        },
+        "success": true
+      },
+      {
+        "id": "sev2",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 63,
+        "output": {
+          "priority": "P3"
+        },
+        "success": false
+      },
+      {
+        "id": "sev3",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 59,
+        "output": {
+          "priority": "P3"
+        },
+        "success": false
+      },
+      {
+        "id": "sev4",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 50,
+        "output": {
+          "priority": "P2"
+        },
+        "success": true
+      },
+      {
+        "id": "sev5",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 66,
+        "output": {
+          "priority": "P3"
+        },
+        "success": false
+      },
+      {
+        "id": "sh1",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 62,
+        "output": {
+          "billable_lb": 3
+        },
+        "success": false
+      },
+      {
+        "id": "sh2",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 62,
+        "output": {
+          "billable_lb": 10
+        },
+        "success": true
+      },
+      {
+        "id": "sh3",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 64,
+        "output": {
+          "billable_lb": 5
+        },
+        "success": false
+      },
+      {
+        "id": "sh4",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 67,
+        "output": {
+          "billable_lb": 4
+        },
+        "success": true
+      },
+      {
+        "id": "sh5",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 61,
+        "output": {
+          "billable_lb": 6
+        },
+        "success": false
+      },
+      {
+        "id": "ph1",
+        "family": "phone-e164",
+        "selected": null,
+        "prompt_tokens": 57,
+        "output": {
+          "numbers": [
+            "+13125550142"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph2",
+        "family": "phone-e164",
+        "selected": null,
+        "prompt_tokens": 67,
+        "output": {
+          "numbers": [
+            "+18005550199",
+            "+442079460958"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph3",
+        "family": "phone-e164",
+        "selected": null,
+        "prompt_tokens": 55,
+        "output": {
+          "numbers": [
+            "+0049301234567"
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "ph4",
+        "family": "phone-e164",
+        "selected": null,
+        "prompt_tokens": 55,
+        "output": {
+          "numbers": [
+            "+5550142"
+          ]
+        },
+        "success": false
+      },
+      {
+        "id": "ph5",
+        "family": "phone-e164",
+        "selected": null,
+        "prompt_tokens": 66,
+        "output": {
+          "numbers": [
+            "+16465550100",
+            "+16465550100"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "x1",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 42,
+        "success": null
+      },
+      {
+        "id": "x2",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 43,
+        "success": null
+      },
+      {
+        "id": "x3",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 41,
+        "success": null
+      },
+      {
+        "id": "x4",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 42,
+        "success": null
+      },
+      {
+        "id": "x5",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 45,
+        "success": null
+      },
+      {
+        "id": "x6",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 49,
+        "success": null
+      },
+      {
+        "id": "x7",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 42,
+        "success": null
+      },
+      {
+        "id": "x8",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 43,
+        "success": null
+      }
+    ],
+    "all_in_context": [
+      {
+        "id": "inv1",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 1632,
+        "output": {
+          "total": "71.65"
+        },
+        "success": true
+      },
+      {
+        "id": "inv2",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 1601,
+        "output": {
+          "total": "120.00"
+        },
+        "success": true
+      },
+      {
+        "id": "inv3",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 1600,
+        "output": {
+          "total": "106.07"
+        },
+        "success": true
+      },
+      {
+        "id": "inv4",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 1629,
+        "output": {
+          "total": "15.81"
+        },
+        "success": true
+      },
+      {
+        "id": "inv5",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 1601,
+        "output": {
+          "total": "24.50"
+        },
+        "success": true
+      },
+      {
+        "id": "sv1",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 1596,
+        "output": {
+          "next": "1.4.3"
+        },
+        "success": true
+      },
+      {
+        "id": "sv2",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 1594,
+        "output": {
+          "next": "1.5.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv3",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 1596,
+        "output": {
+          "next": "0.10.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv4",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 1604,
+        "output": {
+          "next": "3.0.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv5",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 1597,
+        "output": {
+          "next": "1.2.4"
+        },
+        "success": true
+      },
+      {
+        "id": "dt1",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 1586,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "2026-11-03"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt2",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 1582,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "1999-12-25"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt3",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 1573,
+        "output": {
+          "dates": [
+            "2003-01-02"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt4",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 1580,
+        "output": {
+          "dates": [
+            "1976-07-04",
+            "1947-08-15"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt5",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 1581,
+        "output": {
+          "dates": [
+            "2024-02-29",
+            "2024-02-29"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "br1",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 1594,
+        "output": {
+          "branch": "feat/PAY-142-add-retry-payment-webhook"
+        },
+        "success": true
+      },
+      {
+        "id": "br2",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 1589,
+        "output": {
+          "branch": "fix/OPS-7-crash-on-empty-cart"
+        },
+        "success": true
+      },
+      {
+        "id": "br3",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 1592,
+        "output": {
+          "branch": "docs/DOC-88-explain-cafe-menu-export"
+        },
+        "success": true
+      },
+      {
+        "id": "br4",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 1599,
+        "output": {
+          "branch": "chore/INF-3-upgrade-postgres-driver"
+        },
+        "success": true
+      },
+      {
+        "id": "br5",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 1587,
+        "output": {
+          "branch": "feat/UX-5-dark-mode-toggle"
+        },
+        "success": true
+      },
+      {
+        "id": "dd1",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 1661,
+        "output": {
+          "ids": [
+            2,
+            3
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd2",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 1669,
+        "output": {
+          "ids": [
+            3
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd3",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 1630,
+        "output": {
+          "ids": [
+            1,
+            2
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd4",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 1700,
+        "output": {
+          "ids": [
+            5,
+            7,
+            8
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd5",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 1630,
+        "output": {
+          "ids": [
+            1
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "sev1",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 1569,
+        "output": {
+          "priority": "P1"
+        },
+        "success": true
+      },
+      {
+        "id": "sev2",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 1580,
+        "output": {
+          "priority": "P1"
+        },
+        "success": true
+      },
+      {
+        "id": "sev3",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 1576,
+        "output": {
+          "priority": "P2"
+        },
+        "success": true
+      },
+      {
+        "id": "sev4",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 1567,
+        "output": {
+          "priority": "P2"
+        },
+        "success": true
+      },
+      {
+        "id": "sev5",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 1583,
+        "output": {
+          "priority": "P1"
+        },
+        "success": true
+      },
+      {
+        "id": "sh1",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 1579,
+        "output": {
+          "billable_lb": 8
+        },
+        "success": true
+      },
+      {
+        "id": "sh2",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 1579,
+        "output": {
+          "billable_lb": 10
+        },
+        "success": true
+      },
+      {
+        "id": "sh3",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 1581,
+        "output": {
+          "billable_lb": 13
+        },
+        "success": true
+      },
+      {
+        "id": "sh4",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 1584,
+        "output": {
+          "billable_lb": 4
+        },
+        "success": true
+      },
+      {
+        "id": "sh5",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 1578,
+        "output": {
+          "billable_lb": 8
+        },
+        "success": true
+      },
+      {
+        "id": "ph1",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 1574,
+        "output": {
+          "numbers": [
+            "+13125550142"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph2",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 1584,
+        "output": {
+          "numbers": [
+            "+18005550199",
+            "+442079460958"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph3",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 1572,
+        "output": {
+          "numbers": [
+            "+49301234567"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph4",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 1572,
+        "output": {
+          "numbers": [
+            null
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph5",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 1583,
+        "output": {
+          "numbers": [
+            "+16465550100",
+            "+16465550100"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "x1",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1559,
+        "success": null
+      },
+      {
+        "id": "x2",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1560,
+        "success": null
+      },
+      {
+        "id": "x3",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1558,
+        "success": null
+      },
+      {
+        "id": "x4",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1559,
+        "success": null
+      },
+      {
+        "id": "x5",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1562,
+        "success": null
+      },
+      {
+        "id": "x6",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1566,
+        "success": null
+      },
+      {
+        "id": "x7",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1559,
+        "success": null
+      },
+      {
+        "id": "x8",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 1560,
+        "success": null
+      }
+    ],
+    "registry": [
+      {
+        "id": "inv1",
+        "family": "invoice-total",
+        "selected": "date-normalize",
+        "prompt_tokens": 521,
+        "output": {
+          "error": "KeyError: 'dates'"
+        },
+        "success": false
+      },
+      {
+        "id": "inv2",
+        "family": "invoice-total",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 459,
+        "output": {
+          "error": "KeyError: 'rows'"
+        },
+        "success": false
+      },
+      {
+        "id": "inv3",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 483,
+        "output": {
+          "total": "106.07"
+        },
+        "success": true
+      },
+      {
+        "id": "inv4",
+        "family": "invoice-total",
+        "selected": "invoice-total",
+        "prompt_tokens": 512,
+        "output": {
+          "total": "15.81"
+        },
+        "success": true
+      },
+      {
+        "id": "inv5",
+        "family": "invoice-total",
+        "selected": null,
+        "prompt_tokens": 284,
+        "output": {
+          "total": "25.00"
+        },
+        "success": false
+      },
+      {
+        "id": "sv1",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 502,
+        "output": {
+          "next": "1.4.3"
+        },
+        "success": true
+      },
+      {
+        "id": "sv2",
+        "family": "semver-bump",
+        "selected": null,
+        "prompt_tokens": 277,
+        "output": {
+          "next": "1.5.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv3",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 502,
+        "output": {
+          "next": "0.10.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv4",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 510,
+        "output": {
+          "next": "3.0.0"
+        },
+        "success": true
+      },
+      {
+        "id": "sv5",
+        "family": "semver-bump",
+        "selected": "semver-bump",
+        "prompt_tokens": 503,
+        "output": {
+          "next": "1.2.4"
+        },
+        "success": true
+      },
+      {
+        "id": "dt1",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 475,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "2026-11-03"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt2",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 471,
+        "output": {
+          "dates": [
+            "2026-11-03",
+            "1999-12-25"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt3",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 462,
+        "output": {
+          "dates": [
+            "2003-01-02"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt4",
+        "family": "date-normalize",
+        "selected": "date-normalize",
+        "prompt_tokens": 469,
+        "output": {
+          "dates": [
+            "1976-07-04",
+            "1947-08-15"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dt5",
+        "family": "date-normalize",
+        "selected": null,
+        "prompt_tokens": 264,
+        "output": {
+          "dates": [
+            "2024-02-29",
+            "2024-02-29"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "br1",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 477,
+        "output": {
+          "branch": "feat/PAY-142-add-retry-payment-webhook"
+        },
+        "success": true
+      },
+      {
+        "id": "br2",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 472,
+        "output": {
+          "branch": "fix/OPS-7-crash-on-empty-cart"
+        },
+        "success": true
+      },
+      {
+        "id": "br3",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 475,
+        "output": {
+          "branch": "docs/DOC-88-explain-cafe-menu-export"
+        },
+        "success": true
+      },
+      {
+        "id": "br4",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 482,
+        "output": {
+          "branch": "chore/INF-3-upgrade-postgres-driver"
+        },
+        "success": true
+      },
+      {
+        "id": "br5",
+        "family": "branch-name",
+        "selected": "branch-name",
+        "prompt_tokens": 470,
+        "output": {
+          "branch": "feat/UX-5-dark-mode-toggle"
+        },
+        "success": true
+      },
+      {
+        "id": "dd1",
+        "family": "customer-dedupe",
+        "selected": "phone-e164",
+        "prompt_tokens": 521,
+        "output": {
+          "error": "KeyError: 'numbers'"
+        },
+        "success": false
+      },
+      {
+        "id": "dd2",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 527,
+        "output": {
+          "ids": [
+            3
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd3",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 488,
+        "output": {
+          "ids": [
+            1,
+            2
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd4",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 558,
+        "output": {
+          "ids": [
+            5,
+            7,
+            8
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "dd5",
+        "family": "customer-dedupe",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 488,
+        "output": {
+          "ids": [
+            1
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "sev1",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 440,
+        "output": {
+          "priority": "P1"
+        },
+        "success": true
+      },
+      {
+        "id": "sev2",
+        "family": "incident-severity",
+        "selected": null,
+        "prompt_tokens": 263,
+        "output": {
+          "priority": "P3"
+        },
+        "success": false
+      },
+      {
+        "id": "sev3",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 447,
+        "output": {
+          "priority": "P2"
+        },
+        "success": true
+      },
+      {
+        "id": "sev4",
+        "family": "incident-severity",
+        "selected": "incident-severity",
+        "prompt_tokens": 438,
+        "output": {
+          "priority": "P2"
+        },
+        "success": true
+      },
+      {
+        "id": "sev5",
+        "family": "incident-severity",
+        "selected": "customer-dedupe",
+        "prompt_tokens": 441,
+        "output": {
+          "error": "KeyError: 'rows'"
+        },
+        "success": false
+      },
+      {
+        "id": "sh1",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 410,
+        "output": {
+          "billable_lb": 8
+        },
+        "success": true
+      },
+      {
+        "id": "sh2",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 262,
+        "output": {
+          "billable_lb": 10
+        },
+        "success": true
+      },
+      {
+        "id": "sh3",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 412,
+        "output": {
+          "billable_lb": 13
+        },
+        "success": true
+      },
+      {
+        "id": "sh4",
+        "family": "shipping-weight",
+        "selected": null,
+        "prompt_tokens": 267,
+        "output": {
+          "billable_lb": 4
+        },
+        "success": true
+      },
+      {
+        "id": "sh5",
+        "family": "shipping-weight",
+        "selected": "shipping-weight",
+        "prompt_tokens": 409,
+        "output": {
+          "billable_lb": 8
+        },
+        "success": true
+      },
+      {
+        "id": "ph1",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 434,
+        "output": {
+          "numbers": [
+            "+13125550142"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph2",
+        "family": "phone-e164",
+        "selected": "date-normalize",
+        "prompt_tokens": 473,
+        "output": {
+          "error": "KeyError: 'dates'"
+        },
+        "success": false
+      },
+      {
+        "id": "ph3",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 432,
+        "output": {
+          "numbers": [
+            "+49301234567"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph4",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 432,
+        "output": {
+          "numbers": [
+            null
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "ph5",
+        "family": "phone-e164",
+        "selected": "phone-e164",
+        "prompt_tokens": 443,
+        "output": {
+          "numbers": [
+            "+16465550100",
+            "+16465550100"
+          ]
+        },
+        "success": true
+      },
+      {
+        "id": "x1",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 242,
+        "success": null
+      },
+      {
+        "id": "x2",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 243,
+        "success": null
+      },
+      {
+        "id": "x3",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 241,
+        "success": null
+      },
+      {
+        "id": "x4",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 242,
+        "success": null
+      },
+      {
+        "id": "x5",
+        "family": null,
+        "selected": "invoice-total",
+        "prompt_tokens": 445,
+        "success": null
+      },
+      {
+        "id": "x6",
+        "family": null,
+        "selected": "semver-bump",
+        "prompt_tokens": 472,
+        "success": null
+      },
+      {
+        "id": "x7",
+        "family": null,
+        "selected": null,
+        "prompt_tokens": 242,
+        "success": null
+      },
+      {
+        "id": "x8",
+        "family": null,
+        "selected": "customer-dedupe",
+        "prompt_tokens": 418,
+        "success": null
+      }
+    ]
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.0,
+      "success_rate": 0.8,
+      "correct_skill_selected": 32,
+      "wrong_skill_selected": 8,
+      "no_skill_selected": 0,
+      "distractor_false_loads": 8,
+      "mean_prompt_tokens": 466.1
+    },
+    {
+      "threshold": 0.05,
+      "success_rate": 0.85,
+      "correct_skill_selected": 32,
+      "wrong_skill_selected": 6,
+      "no_skill_selected": 2,
+      "distractor_false_loads": 3,
+      "mean_prompt_tokens": 436.9
+    },
+    {
+      "threshold": 0.1,
+      "success_rate": 0.825,
+      "correct_skill_selected": 31,
+      "wrong_skill_selected": 6,
+      "no_skill_selected": 3,
+      "distractor_false_loads": 3,
+      "mean_prompt_tokens": 432.7
+    },
+    {
+      "threshold": 0.15,
+      "success_rate": 0.825,
+      "correct_skill_selected": 29,
+      "wrong_skill_selected": 5,
+      "no_skill_selected": 6,
+      "distractor_false_loads": 3,
+      "mean_prompt_tokens": 420.8
+    },
+    {
+      "threshold": 0.2,
+      "success_rate": 0.85,
+      "correct_skill_selected": 29,
+      "wrong_skill_selected": 3,
+      "no_skill_selected": 8,
+      "distractor_false_loads": 1,
+      "mean_prompt_tokens": 404.0
+    },
+    {
+      "threshold": 0.3,
+      "success_rate": 0.825,
+      "correct_skill_selected": 25,
+      "wrong_skill_selected": 2,
+      "no_skill_selected": 13,
+      "distractor_false_loads": 1,
+      "mean_prompt_tokens": 384.8
+    },
+    {
+      "threshold": 0.4,
+      "success_rate": 0.85,
+      "correct_skill_selected": 24,
+      "wrong_skill_selected": 1,
+      "no_skill_selected": 15,
+      "distractor_false_loads": 0,
+      "mean_prompt_tokens": 372.9
+    }
+  ]
+}
